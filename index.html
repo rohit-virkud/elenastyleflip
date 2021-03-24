@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Lato:wght@900&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
+    <title>Electricity Company | @rohit_virkud</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comfortaa', cursive;
+            
+        }
+        a{
+             color: inherit; 
+             text-decoration: none;
+        }
+        body
+        {
+            background-color: black;
+        }
+       
+
+    .swiper-container
+    {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        position: absolute;
+        left: 50%;
+        margin-left: -50%;
+
+    }
+    .swiper-slide
+    {
+        background-size:cover;
+        background-position: center;
+        box-sizing: border-box;
+        
+        color: white;
+        font-family: 'Roboto', sans-serif;
+    }
+        
+        .screen-02,.screen-01
+        { 
+
+            overflow:hidden; 
+
+        }
+        .screen-01
+        {
+            width: 100%;
+            height: 100vh;
+              position: absolute;
+             transform-origin: bottom right;
+            transform: rotate(0deg);
+            z-index: 1;
+        }
+        .screen-02
+        {
+            width: 100%;
+            height: 100vh;
+            transform-origin: bottom right;
+            z-index: 0;
+        }
+        .wrapper
+        {
+            width: 100%;
+            height: 100vh;
+            background-color: white;
+            overflow: hidden;
+           
+            
+        }
+
+        /*brand  logo*/
+        .brand
+        {
+            width: min(30vw,13vh);
+            height: min(30vw,13vh);
+            margin-left: min(7vw,3.5vh);
+            margin-top: min(7vw,3.5vh);
+            margin-bottom: min(8vw,4vh);
+            
+        }
+        .brand .logo
+        {
+            width: 100%;
+        }
+
+         /*text wrapper*/
+        .text-wrapper
+        {
+            
+            width: 80vw;
+            height: min(38vw,18vh);
+            background: #FFFFFF;
+            box-shadow: 0vw 0.985vw 7.389vw rgba(18, 124, 165, 0.1);
+            border-radius: 0vw 18.473vw 18.473vw 0vw;
+            padding-top: min(7vw,3.5vh);
+            padding-left: min(7vw,3.5vh);
+            
+        }
+        .text-wrapper h1
+        {
+            color: #E75125;
+            word-wrap: word-break;
+            font-size: min(5vw,2.5vh);
+            width: 80%;
+            overflow: hidden;
+
+        }
+        .text-wrapper p
+        {
+            color: #000000;
+            word-wrap: word-break;
+            font-family: 'Roboto', sans-serif;
+            font-size: min(3.8vw, 1.8vh);
+            overflow: hidden;
+            
+        }
+        .p-mg-top
+        {
+            margin-top: min(2vw,1vh);
+        }
+
+        /*button wrapper*/
+        .buttons-wrapper
+        {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: min(10vw,5vh);
+            /*margin-bottom:min(12vw,6vh);*/
+            
+        }
+        .buttons-container
+        {
+            width: 90%;
+        }
+        .buttons-container a{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: min(5vw,3vh);
+        }
+        .buttons-container img
+        {
+            width: min(8vw,3vh);
+            height: min(8vw,3vh);
+        }
+        .buttons-container p
+        {
+            margin-left: min(3vw,1.3vh);
+            font-size: min(4vw,1.7vh);
+            overflow: hidden;
+        }
+
+        p span,h1 span {
+          display: block;
+          
+          animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 3s;
+        }
+        p span
+        {
+            color: black;
+        }
+        
+        @keyframes reveal {
+          0% {
+            transform: translate(0,100%);
+          }
+          100% {
+            transform: translate(0,0);
+          }
+        }
+
+        
+    
+        .save-my-contact-btn
+        {
+            
+            display: inline-flex;
+            flex-grow: 0;
+            padding-top: min(4.695vw, 1.8vh);
+            padding-bottom: min(4.695vw,1.8vh);
+            padding-right: min(2.463vw,1vh);
+            padding-left: min(2.463vw,1vh);
+            background-color: #16A8E1;
+            color:white;
+            margin-top:min(8vw,4vh);
+            margin-left: min(5.8vw,2vh);
+            font-family: 'Lato', sans-serif;
+            font-size: min(3.5vw,1.5vh);
+            font-weight: 900;    
+            
+        }
+
+        /*footer*/
+       
+        .social-icons
+        {
+            position: absolute;
+            margin-left: min(5.8vw,1.8vh);
+            margin-top: min(12vw,4vh);
+            bottom: 0;
+            left:0;
+            padding-bottom: min(1vw,1vh);
+        }
+
+        
+
+        .translator-btn
+        {
+            position: fixed;
+            width: min(25vw,10vh);
+            display: flex;
+            justify-content: center;
+            flex-shrink: 0;
+            background-color: #E75125;
+            color: white;
+            padding-top: min(3.695vw,1.7vh);
+            padding-bottom: min(3.695vw,1.7vh);
+            padding-right: min(7.621vw,4.3vh);
+            padding-left: min(7.621vw,4.3vh);
+            right: 0;
+            bottom: 0;
+        }
+        .translator-btn img
+        {
+            width: min(3vw,2vh);
+            height: min(3vw,2vh);
+            margin-left: min(2vw,1vh);
+        }
+        .translator-btn h3
+        {
+
+            font-size: min(3vw,1.8vh);
+            font-weight: 400;
+
+        }
+        
+        
+        .social-icons .fb
+        {
+            width: min(3.448vw,1.5vh);
+            height: min(7.635vw,3.5vh);
+           
+        }
+        
+        .social-icons .yt
+        {
+            width: min(5.12vw,3vh);
+            height: min(7vw,3.5vh);
+            margin-left: min(2vw,1vh);
+        }
+        .social-icons .twit
+        {
+            width: min(7.2vw,3.6vh);
+            height: min(6vw,3.6vh);
+            margin-left: min(2vw,1vh);
+        }
+        
+
+        .share-icon
+        {
+            position: absolute;
+            top: 5%;
+            right: 5.5%;
+            width: min(11vw,5.5vh);
+            height: min(11vw,5.5vh);
+        } 
+
+
+        /**/
+
+        .loader-container
+            {
+                position:fixed;
+                width: 100%;
+                height: 100vh;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                z-index: 8888;
+               
+               
+               
+            }
+            .logo-name
+            {
+                width: 200px;
+                height: 200px;
+                position: absolute;
+            }
+            .dual-ring {
+              display: inline-block;
+              width: 200px;
+              height: 200px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+            }
+        
+          .loading-tag
+          {
+              margin-top: 20px;
+          }
+          .loading-tag-two
+          {
+              margin-top: 10px;
+          }
+          .loading-tag-three
+          {
+              margin-top: 10px;
+              color: #16A8E1;
+          }
+
+      
+       /*share slide*/
+        .share-slide
+        {
+           
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #D8F1FB;
+            mix-blend-mode: normal;
+            backdrop-filter: blur(30px);
+            
+            
+        }
+        .share-slide .close-icon
+        {
+            position: absolute;
+            top: 5%;
+            left: 5.5%;
+            width: min(5vw,3vh);
+            height: min(5vw,3vh);
+        }
+        .share-slide-share-icons
+        {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+           
+        }
+        .share-slide-share-icons h2, .qr-code-wrapper h2
+        {
+            font-size: min(5vw,2.5vh);
+            color: #757575;
+        }
+        .icon-grid
+        {
+            display: grid;
+            width: 80%;
+            grid-template-columns: 11vw 11vw 11vw 11vw;
+            grid-gap: min(2vw,1vh);
+            margin-top: min(2vw,1vh);
+            justify-content: center;
+        }
+        .icon-grid a
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .icon-grid img
+        {
+            width: min(11vw,5vh);
+            height: min(11vw,5vh);
+        }
+        .scan-and-save-txt
+        {
+            margin-top: min(30vw,10vh);
+            
+        }
+        .qr-code-wrapper
+        {
+            width: 100%;
+            height: 50vh;
+            
+            display: flex;
+            flex-direction: column;
+            color: #757575;
+            align-items: center;
+        }
+        .qr-code-container img
+        { 
+            width: min(40vw,20vh);
+            height: min(40vw,20vh);
+            margin-top: min(2vw,1vh); 
+        }
+
+          
+          
+
+
+         
+
+
+    
+
+    </style>
+</head>
+<body>
+
+
+ 
+
+
+
+
+    <!-- Loader ----> 
+    <div class="loader-container">
+        <div class="dual-ring">
+            <img src="logo.gif" alt="logo-name" class="logo-name"/>
+        </div>
+        <div>
+          <h3 class="loading-tag">Ένα με το μέλλον</h3> 
+          <h3 class="loading-tag-three">dei.gr</h3>
+        </div>
+  
+    </div> 
+
+    <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      
+      <div class="swiper-slide screen-01" id="s1">
+           <div class="wrapper">
+        
+
+            <div  onclick="share()">
+                <img src="share.png" alt="share-icon" class="share-icon swiper-button-next">
+            </div>
+
+             
+
+            <div class="brand">
+                <img src="logo.gif"  alt="logo" class="logo" />
+            </div>
+
+            <div class="text-wrapper">
+                <h1 data-swiper-parallax="-200">
+                   <span>Konstantinos D. Grompanopoulos</span>
+                </h1>
+                <p class="p-mg-top" data-swiper-parallax="-200">Director of Production Assets</p>
+                <p data-swiper-parallax="-200">Withdrawal Management Department</p>
+            </div>
+           
+            <div class="buttons-wrapper">
+                <div class="buttons-container">
+                    <a href="tel:+30 697 000 6113" data-swiper-parallax="-200">
+                    <img src="mobile icon.png">
+                    <p>
+                       <span>+30 697 000 6113</span>
+                    </p>
+                    </a>
+
+                    <a href="tel:+30 210 529276" data-swiper-parallax="-200">
+                        <img src="mobile icon-1.png">
+                        <p>
+                            <span>+30 210 529276</span>
+                        </p>
+                    </a>
+
+                    <a href="mailto:k.grompanopoulos@dei.com.gr" data-swiper-parallax="-200">
+                        <img src="email icon.png">
+                        <p>
+                            <span>k.grompanopoulos@dei.com.gr</span>
+                        </p>
+                    </a>
+
+                    <a href="http://www.dei.gr/" data-swiper-parallax="-200"> 
+                        <img src="web icon.png">
+                        <p>
+                            <span>www.dei.gr</span>
+                        </p>
+                    </a>
+
+                    <a href="#!" data-swiper-parallax="-200">
+                        <img src="location icon.png">
+                        <p>
+                        <span>22, 3rd Septemvriou st., Athens GR-104 32</span>
+                        </p>
+                    </a>
+                   
+                </div>
+            </div> 
+
+            
+            <a href="#!" data-swiper-parallax="-200" class="save-my-contact-btn">SAVE MY CONTACTS</a>
+        
+    
+              <div class="social-icons" data-swiper-parallax="-100">
+                  <a href="https://www.facebook.com/"><img src="facebook.png" alt="facebook-logo" class="fb"/></a>
+                  <a href="https://www.twitter.com/"><img src="twitter.png" alt="twitter-logo" class="twit"></a>
+                  <a href="https://www.youtube.com/"><img src="youtube.png" alt="youtube-logo" class="yt"></a>
+              </div>
+
+              
+            
+            <a class="translator-btn" data-swiper-parallax="-200">
+                  <h3>ENG</h3>
+                  <img src="Arrow   Down Circle.png"/>
+            </a>
+          
+
+        </div>
+      </div>
+
+    
+
+       <div class="swiper-slide screen-02">
+              <div class="share-slide" id="share-slide">
+              
+              <img src="close icon.png" class="swiper-button-prev close-icon" onclick="closeTheShare()" >
+              
+              <div class="share-slide-share-icons">
+                  <h2 data-swiper-parallax="-200">SHARE MY CARD</h2>
+                  <div class="icon-grid" data-swiper-parallax="-200">
+                      <a href="#" ><img src="sms.png"></a>
+                      <a href="#"><img src="cs.png"></a>
+                      <a href="#"><img src="whatsapp.png"></a>
+                      <a href="#"><img src="dropbox 187.png"></a>
+                      <a href="#"><img src="fb9.png"></a>
+                      <a href="#"><img src="telegram 191.png"></a>
+                      <a href="#"><img src="twitter8.png"></a>
+                      <a href="#"><img src="linkedin3.png"></a>
+                  </div>
+                  <h2 class="scan-and-save-txt" data-swiper-parallax="-200">SCAN AND SAVE</h2>
+                  <div class="qr-code-container" data-swiper-parallax="-200">
+                      <img src="qr.png">
+                  </div>
+              </div>
+            </div>
+       </div>
+
+
+
+
+    </div>
+  </div>     
+     
+    
+         
+
+
+
+        <script>
+            
+
+            
+              
+            const t1 = new TimelineLite({paused:true, reversed:true});
+            const t2 = new TimelineLite({paused:true, reversed:true});
+
+            t1.to('.screen-01',1,{
+                rotation: -90,
+                zIndex: 0,
+                ease: Power2.easeOut,
+            })
+            .to('.screen-02',1,{
+                zIndex:2,
+                ease: Power2.easeOut,
+            },'-= 1')
+            .to('.screen-01',1,{
+
+                rotation: 0,
+                ease: Power2.easeOut,
+            })
+
+
+            t2.to('.screen-02',1,{
+                rotation: -90,
+                zIndex:0,
+                ease: Power2.easeOut,
+            })
+            .to('.screen-01',1,{
+                zIndex: 2,  
+                ease: Power2.easeOut,
+            },'-= 1')
+            .to('.screen-02',1,{
+                rotation: 0,
+                ease: Power2.easeOut,
+            })
+
+
+
+            
+
+            function share()
+            {
+               
+
+               t1.play(0);
+                  
+            }
+
+
+
+            function closeTheShare()
+            {
+            
+               t2.play(0);      
+                
+            }
+           
+
+
+
+
+            $('document').ready(function(e){
+
+                $(".loader-container").delay( 3000 ).fadeOut('slow');
+                
+
+            });
+
+
+            
+
+
+        </script>
+
+
+  
+</body>
+</html>
